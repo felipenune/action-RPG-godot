@@ -1,8 +1,12 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://World/Tree.png" type="Texture" id=1]
 [ext_resource path="res://Player/Player.gd" type="Script" id=2]
 [ext_resource path="res://Player/Player.png" type="Texture" id=3]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 3.64085
+height = 2.94461
 
 [node name="World" type="Node2D"]
 
@@ -20,3 +24,13 @@ __meta__ = {
 [node name="Player" type="Sprite" parent="Player"]
 texture = ExtResource( 3 )
 hframes = 60
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2( -0.525543, 9.24986 )
+rotation = -1.5708
+shape = SubResource( 1 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PoolVector2Array( -0.566238, -1.81145, 53.5427, -0.622253, 30.9477, 55.8651, 49.9751, 101.65, 27.9747, 155.164, 120.733, 140.299, 202.788, 154.569, 250.951, 131.974, 295.546, 139.704, 268.789, 87.9737, 294.357, 39.2162, 250.951, 5.91839, 323.493, -1.21686, 316.952, 175.38, 5.37979, 177.759 )
