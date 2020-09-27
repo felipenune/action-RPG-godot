@@ -19,6 +19,10 @@ config/name="Action RPG Heartbeast"
 run/main_scene="res://World.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+PlayerStats="*res://Player/PlayerStats.tscn"
+
 [display]
 
 window/size/width=320
@@ -70,6 +74,7 @@ ui_roll={
 2d_physics/layer_2="Player"
 2d_physics/layer_3="PlayerHurtbox"
 2d_physics/layer_4="EnemyHurtbox"
+2d_physics/layer_5="Enemy"
 
 [rendering]
 
