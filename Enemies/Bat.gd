@@ -12,6 +12,7 @@ var velocity = Vector2.ZERO
 onready var stats = $Stats
 onready var animated_sprite = $AnimatedSprite
 onready var detection_zone = $DetectionZone
+onready var soft_collider = $SoftCollider
 
 enum {
 	IDLE,
@@ -42,6 +43,8 @@ func _physics_process(delta):
 			else:
 				state = IDLE
 				
+	if soft_collider.is_colliding():
+		velocity += soft_collider.get_push_vector() * delta * 400
 	velocity = move_and_slide(velocity)
 
 func seek_player():
