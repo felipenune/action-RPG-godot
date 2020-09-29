@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=2]
+[gd_scene load_steps=60 format=2]
 
 [ext_resource path="res://World/Bush.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Enemies/Bat.tscn" type="PackedScene" id=7]
 [ext_resource path="res://UI/HealthUI.tscn" type="PackedScene" id=8]
 [ext_resource path="res://World/Tree.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Camera2D.tscn" type="PackedScene" id=10]
 
 [sub_resource type="TileSet" id=1]
 0/name = "DirtTileset.png 0"
@@ -505,11 +506,14 @@ cell_size = Vector2( 32, 32 )
 format = 1
 tile_data = PoolIntArray( -262136, 0, 0, -262135, 0, 1, -262134, 0, 2, -196600, 0, 65536, -196599, 0, 65537, -196598, 0, 131077, -196597, 0, 1, -196596, 0, 1, -196595, 0, 2, -65542, 0, 0, -65541, 0, 1, -65540, 0, 1, -65539, 0, 5, -65538, 0, 196610, -131064, 0, 131072, -131063, 0, 131073, -131062, 0, 65542, -131061, 0, 65537, -131060, 0, 65537, -131059, 0, 131077, -131058, 0, 2, -6, 0, 65536, -5, 0, 65537, -4, 0, 65541, -3, 0, 131074, -65526, 0, 131072, -65525, 0, 131073, -65524, 0, 131073, -65523, 0, 131073, -65522, 0, 131074, 65530, 0, 65536, 65531, 0, 65541, 65532, 0, 131074, 131066, 0, 65540, 131067, 0, 131074, 65541, 0, 0, 65542, 0, 1, 65543, 0, 2, 196602, 0, 131075, 131077, 0, 131072, 131078, 0, 131073, 131079, 0, 9, 131080, 0, 2, 196608, 0, 196608, 196609, 0, 7, 196615, 0, 65536, 196616, 0, 65538, 196622, 0, 4, 196623, 0, 196609, 196624, 0, 196609, 196625, 0, 196609, 196626, 0, 196610, 327676, 0, 196608, 327677, 0, 196609, 327678, 0, 7, 262145, 0, 196612, 262146, 0, 7, 262151, 0, 131072, 262152, 0, 65543, 262157, 0, 0, 262158, 0, 131079, 393214, 0, 131075, 327682, 0, 131075, 327688, 0, 131075, 327692, 0, 4, 327693, 0, 196614, 327694, 0, 131074, 458744, 0, 196608, 458745, 0, 6, 458746, 0, 2, 393228, 0, 65539, 524281, 0, 131072, 524282, 0, 65543, 458764, 0, 196612, 458765, 0, 196609, 458766, 0, 7, 589818, 0, 131075, 524302, 0, 196612, 524303, 0, 7, 589839, 0, 131075 )
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" parent="." instance=ExtResource( 10 )]
 position = Vector2( 96.9206, 82.9473 )
-current = true
-process_mode = 0
-smoothing_enabled = true
+
+[node name="TopLeft" parent="Camera2D/Node" index="0"]
+position = Vector2( -192, -64 )
+
+[node name="BottomRight" parent="Camera2D/Node" index="1"]
+position = Vector2( 448, 240 )
 
 [node name="YSort" type="YSort" parent="."]
 
@@ -612,3 +616,5 @@ margin_left = 9.0
 margin_top = 8.0
 margin_right = 64.0
 margin_bottom = 28.0
+
+[editable path="Camera2D"]
